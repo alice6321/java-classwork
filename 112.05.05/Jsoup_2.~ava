@@ -1,0 +1,39 @@
+import java.io.*;
+import java.util.regex.*;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+class Jsoup_2{
+  Jsoup_1() {
+    try {
+      Document doc = Jsoup.connect("https://www.mdpi.com/journal/cryptography").get();
+      Elements links = doc.select("a[class=title-link][href~=(/2410-387X/7)]");
+      for (Element link : links) {
+        System.out.println(link.text());
+      } 
+    } catch(IOException e) {      
+    } 
+  }
+  public class HelloEvent implements ActionListener {
+  JFrame f;
+  JButton b;
+  HelloEvent(){
+    f = new JFrame("HelloEvent");
+    f.setLayout(new FlowLayout());
+    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    Container c = f.getContentPane();
+    b = new JButton("HelloEvent");
+    b.addActionListener(this);
+    c.add(b);
+    f.setSize(600,400);
+    f.setVisible(true);
+  }
+  public void actionPerformed(ActionEvent e){
+    JOptionPane.showMessageDialog(f,"HelloEvent");
+  }
+  public static void main(String[] args) throws IOException {
+    new Jsoup_2();
+  }
+}
